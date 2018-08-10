@@ -7,7 +7,6 @@
 
 ## Instructions
 * clone this [repository](https://github.com/k8xian/liri-node-app.git) to your computer
-    * 
 * cd into the repo
 * run **npm install**
 
