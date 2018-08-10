@@ -11,7 +11,7 @@
 * run **npm install**
 
 ## Operations
-* beign your query by typing **node liri.js** and then:
+* begin your query by typing **node liri.js** and then:
     * lookup a tweet by typing **my-tweets** next and then a profile you'd like to look up
     * lookup a song by typing **spotify-this-song** and then a song name you'd like to look up
     * lookup a movie by typing **movie-this** and then the movie title you'd like to look up
