@@ -1,6 +1,5 @@
 # Liri Node App
-* By Kate Christian
-* k8xian.github.io
+* By Kate Christian | [Portfolio:](https://k8xian.github.io)
 * For Northwestern University's Full Stack Flex Code Bootcamp
 
 **Deployment:** [k8xian.github.io/liri-node-app](https://k8xian.github.io/liri-node-app)
