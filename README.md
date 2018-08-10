@@ -16,6 +16,8 @@
     * lookup a movie by typing **movie-this** and then the movie title you'd like to look up
     * give liri a command by typing it into the random.txt file in the format of 
      * [command],"[thing you'd like to search]"
+     
+* all of your queries will be logged to log.txt with a date stamp
 
 # Credits 
 * For tweets, the Twitter API is used
