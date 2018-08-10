@@ -59,12 +59,18 @@ if (inputQuery && inputCmd) {
 //This will show your last 20 tweets and when they were created at in your terminal/bash window.
 
 function myTweets() {
-    params = { screen_name: inputQuery };
+    if (inputQuery === undefined){
+        query = "TumblrSimulator";
+    } else {
+        query = inputQuery;
+    }
+
+    params = { screen_name: query };
 
     twitter.get("statuses/user_timeline", params, function (err, tweets, res) {
         if (!err) {
             for (var i in tweets) {
-                console.log(border + "Tweet #: " + outputNum + hr + tweets[i].text + border);
+                console.log(border + "\t@" + query + " | Tweet #: " + outputNum + hr + br + tweets[i].text + br + hr);
                 outputNum++;
             }
         } else {
@@ -129,26 +135,15 @@ function movieThis() {
     var movieQuery;
 
     if (inputQuery === undefined) {
-        movieQuery = "Mr-Nobody";
+        movieQuery = "Mr Nobody";
         var queryURL = "http://www.omdbapi.com/?t=" + movieQuery + "&y=&plot=short&apikey=trilogy";
         //   console.log("For testing: " + queryURL + " (MR NOBODY)");
 
     } else {
-        //starting at [3] bc that's the beginning of the string
-        //I'm repeating this loop because search seems like it's more stable when there are hyphens
-        if (nodeArgs.length >= 4) {
-            var movieTemp;
-            for (let i = 3; i < nodeArgs.length; i++) {
-                movieTemp = movieTemp + "-" + nodeArgs[i];
-            }
-            var movieQuery = movieTemp.replace('undefined-', '');
-            console.log(movieQuery);
-        } else {
             movieQuery = inputQuery;
         }
        // console.log("The movie you requested: " + movieQuery);
         var queryURL = "http://www.omdbapi.com/?t=" + movieQuery + "&y=&plot=short&apikey=trilogy";
-    }
 
     request(queryURL, (err, res, body) => {
         if (err) throw err;
@@ -190,10 +185,10 @@ function movieThis() {
 };
 
 //---------------DO WHAT IT SAYS--------------//
-//`do-what-it-says`
-// Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
-// It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
-// Feel free to change the text in that document to test out the feature for other commands
+    //`do-what-it-says`
+    // Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+    // It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
+    // Feel free to change the text in that document to test out the feature for other commands
 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function (err, res) {
