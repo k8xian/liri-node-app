@@ -192,7 +192,7 @@ function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function (err, res) {
         if (err) throw err;
         var data = res.split(",");
-        console.log(data);
+       //console.log(data);
         inputRequest = data[1].trim();
         var inputType = data[0];
 
