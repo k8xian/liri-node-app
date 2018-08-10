@@ -59,6 +59,7 @@ if (inputQuery && inputCmd) {
 //This will show your last 20 tweets and when they were created at in your terminal/bash window.
 
 function myTweets() {
+
     if (inputQuery === undefined){
         query = "TumblrSimulator";
     } else {
@@ -68,14 +69,11 @@ function myTweets() {
     params = { screen_name: query };
 
     twitter.get("statuses/user_timeline", params, function (err, tweets, res) {
-        if (!err) {
+        if (err) console.log(err);
             for (var i in tweets) {
-                console.log(border + "\t@" + query + " | Tweet #: " + outputNum + hr + br + tweets[i].text + br + hr);
+            console.log(border + "\t@" + query + " | Tweet #: " + outputNum + hr + br + tweets[i].text + br + hr);
                 outputNum++;
             }
-        } else {
-            throw err;
-        }
     });
 };
 
